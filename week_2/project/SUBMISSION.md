@@ -1,5 +1,49 @@
 # Week 2 Submission — GenAI/Agentic Track 2026
 
+## Setup Instructions
+
+### Prerequisites
+- Python 3.10+
+- A free [OpenRouter](https://openrouter.ai) account (API key)
+- A free [Serper](https://serper.dev) account (API key, 2500 free queries/month)
+
+### Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Configure environment
+Copy `.env.example` to `.env` in the `week_2/` folder and fill in your keys:
+```
+OPENROUTER_API_KEY=sk-or-v1-...
+SERPER_API_KEY=...
+```
+
+### Run the TUI
+From the `week_2/` directory:
+```bash
+python project/tui.py
+```
+
+Or to test the agent without the TUI:
+```bash
+python project/agent.py "Your research question here"
+```
+
+### Model selection
+The agent uses `nvidia/nemotron-3-super-120b-a12b:free` by default (free, no credits needed).
+To override:
+```bash
+AGENT_MODEL=meta-llama/llama-3.3-70b-instruct:free python project/tui.py
+```
+
+### Notes on AlphaXiv MCP
+The AlphaXiv MCP server (`https://api.alphaxiv.org/mcp/v1`) requires OAuth authentication.
+The agent attempts to connect and falls back gracefully if unavailable — all other tools
+(web search, web fetch) continue to work normally.
+
+---
+
 ## What I Built
 
 A terminal-based research tool modelled on Perplexity. You type a question, and an agent:
