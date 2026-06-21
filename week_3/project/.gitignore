@@ -1,0 +1,5 @@
+.env
+__pycache__/
+*.pyc
+.agent/sessions/*.json
+notes/*.md
